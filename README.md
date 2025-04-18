@@ -37,6 +37,33 @@ Remember that their are two options as mentioned earlier:
 ![image](https://github.com/user-attachments/assets/e7e437e0-e3df-4d06-a019-e4f8fb915c0e)
 
 ## Step 3: Adding Hex Code to Arduino Code
+### Case 1: Multi Colored Images
+creat a Header file with name **image.h**
+open the file and insert the below code
+```
+const unsigned char image_name [] PROGMEM = { // paste the Hex Value here };
+```
+in the Arduino code:
+```
+#include <SPI.h> //display
+#include <Adafruit_GFX.h>    // Core graphics library
+#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
+#include "image.h"
+
+#define TFT_CS   19   // Chip select pin
+#define TFT_DC   4  // Data/Command pin
+#define TFT_RST  5  // Reset pin (can be set to -1 if not used)
+
+Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+void setup() {
+tft.init(240, 240, SPI_MODE2);    // Init ST7789 display 240x240 pixels
+
+tft.setRotation(3);
+tft.fillRect(0, 0, 240, 240, ST77XX_BLACK); //clearing the display
+tft.drawBitmap(x_position, y_position, image_name, image_height, image_width); // replace the x_position, y_position, image_name, image_height, image_width. 
+```
+
 
 ### Case 2: Multi Colored Images
 creat a Header file with name **image.h**
