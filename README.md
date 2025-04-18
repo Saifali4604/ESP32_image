@@ -1,4 +1,4 @@
-# Converting Images to Flash Memory Icons/images for TFT 
+# Converting Images to Flash Memory Icons/images for TFT (without SD Card)
 ## Softwares
 1. [FastStone Photo Resizer](http://www.faststone.org/FSResizerDownload.htm)
 2. [LCD image Converter](https://sourceforge.net/projects/lcd-image-converter)
@@ -91,3 +91,6 @@ tft.setRotation(3);
 tft.fillRect(0, 0, 240, 240, ST77XX_BLACK); //clearing the display
 tft.drawRGBBitmap(x_position, y_position, image_name, image_height, image_width); // replace the x_position, y_position, image_name, image_height, image_width. 
 ```
+
+Reference:
+https://www.instructables.com/Converting-Images-to-Flash-Memory-Iconsimages-for-/
